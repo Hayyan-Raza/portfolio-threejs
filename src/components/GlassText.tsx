@@ -36,8 +36,9 @@ function GlassOrb() {
 
 function Scene({ text }: { text: string }) {
   const { viewport } = useThree();
-  const fontSize = viewport.width > 10 ? 0.8 : 0.5;
-  const maxWidth = viewport.width * 0.85;
+  // Make font size perfectly responsive so it never gets cut off vertically or horizontally
+  const fontSize = Math.min(viewport.width * 0.045, viewport.height * 0.08);
+  const maxWidth = viewport.width * 0.9;
 
   return (
     <>
