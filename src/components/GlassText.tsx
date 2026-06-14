@@ -36,8 +36,8 @@ function GlassOrb() {
 
 function Scene({ text }: { text: string }) {
   const { viewport } = useThree();
-  // Make font size perfectly responsive so it never gets cut off vertically or horizontally
-  const fontSize = Math.min(viewport.width * 0.045, viewport.height * 0.08);
+  // Significantly reduce the font size multipliers to prevent vertical clipping on many lines
+  const fontSize = Math.min(viewport.width * 0.035, viewport.height * 0.05);
   const maxWidth = viewport.width * 0.9;
 
   return (
@@ -69,7 +69,7 @@ function Scene({ text }: { text: string }) {
 
 export default function GlassText({ text }: { text: string }) {
   return (
-    <div className="w-full h-[80vh] relative cursor-crosshair -mt-20">
+    <div className="w-full h-[95vh] relative cursor-crosshair -mt-20">
       <Canvas camera={{ position: [0, 0, 10], fov: 35 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
         <Scene text={text} />
       </Canvas>
